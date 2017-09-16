@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+	<div class = 'flash'>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			  
+			<ul>
+			{% for message in messages %}
+				<li> <strong> {{ message }} </strong> </li>
+			{% endfor %}
+			</ul>
+			{% endif %}
+			
+		{% endwith %}
+
+	</div>
+
+	
+
+	<div class="row category-items">
+
+		<div class="col-md-6 category-img">
+			<img src="{{category.picture}}" style = "width: 150px; height: 150px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> 
+		</div>
+
+		<div class="col-md-6 list-items">
+			<h1>{{category.name}} Items</h1> 
+			<a href="{{url_for('newItem')}}">
+				<h4>Add Item</h4>
+			</a>
+			<br>
+
+			{% if items.count() > 0 %}
+				{% for item in items %}
+					<p>
+						<a href="{{url_for('showItem', category_id = category.id, item_id=item.id)}}">
+							<h5>{{item.name}}</h5>
+						</a>
+						
+					</p>
+					<br>
+				{% endfor %}
+			{% else %}
+				<h6>No items for {{category.name}}!</h6>
+			{% endif %}
+		</div>
+		
+		
+	</div>
+
+{% endblock %}

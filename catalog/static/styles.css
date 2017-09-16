@@ -1,0 +1,75 @@
+
+body{
+	background-color: black;
+}
+
+*{
+	color: blue;
+}
+
+select, option{
+	color: blue;
+}
+
+#header{
+	text-align: center;
+	margin: 0px auto;
+	padding: 60px;
+}
+
+
+#signinButton, #result{
+	text-align: center;
+	margin-top: 5px;
+}
+
+.title{
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.top-menu{
+	margin: 25px auto;
+}
+
+.catalog{
+	border: 2px white solid;
+}
+
+.categories, .items{
+	padding-left: 40px;
+}
+
+.items{
+	border-left: 1px white solid;
+}
+
+.list-items{
+	border-left: 1px white solid;
+	border-right: 1px white solid;
+	padding: 10px 30px;
+}
+
+.details-header{
+	margin-bottom: 20px;
+	border-bottom: 2px white solid;
+}
+
+button{
+	margin-right: 15px;
+}
+
+.goodbye{
+	margin: 20px;
+	text-align: center;
+}
+
+.category-img{
+	margin-top: 15px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+h2{
+	text-align: center;
+}

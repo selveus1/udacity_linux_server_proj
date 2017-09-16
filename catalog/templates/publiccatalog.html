@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "publicheader.html" %}
+
+
+	<div class = 'flash'>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			  
+			<ul>
+			{% for message in messages %}
+				<li> <strong> {{ message }} </strong> </li>
+			{% endfor %}
+			</ul>
+			{% endif %}
+
+		{% endwith %}
+
+	</div>
+
+	<div class="catalog row">
+		{% if categories.count() > 0 %}
+			<div class="categories col-md-4">
+				<h1>Categories</h1>
+				
+					{% for category in categories %}
+						<a href = "{{url_for('showCategoryItems', category_id = category.id)}}">
+							<h4>{{category.name}}</h4>
+							<br>
+						</a>
+					{% endfor %}
+				
+			</div>
+
+			<div class="items col-md-8">
+			
+				<h1>Latest Items</h1>
+
+				{% if items.count() > 0 %}
+					{% for item in items %}
+						<p>
+							
+							<h4>
+								<a href="{{url_for('showItem', category_id=item.category.id, item_id=item.id)}}"> 
+									{{item.name}}
+								</a>
+								({{item.category.name}}) 
+							</h4>
+							
+						</p>
+						<br>
+					{% endfor %}
+				{% else %}
+					<h6>No items added!</h6>
+				{% endif %}
+			</div>
+
+		{% else %}
+				<h2>Oh no! Looks like the catalog is empty... :( </h2>
+		{% endif %}
+	</div>
+
+{% endblock %}
+
+
